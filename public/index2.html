@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="root"></div>
+    <script>
+
+        let sum = 0;
+
+        Array.prototype.newMap = function(callback) {
+
+            let newArr = [];
+
+            for(let i = 0; i < this.length; i++) {
+                newArr.push(callback(this[i], i, this));
+            }
+
+            return newArr;
+
+        };
+
+        let superArr = [1, 2, 3].newMap(function(item, index, arr){
+            return item+'a';
+        });
+
+        console.log(superArr);
+    </script>
+</body>
+</html>
